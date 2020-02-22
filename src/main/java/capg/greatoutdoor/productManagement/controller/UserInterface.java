@@ -24,7 +24,7 @@ public class UserInterface
     	 isLoggedIn();
     }
     
-   
+   //MasterController Method
 	private static void ProductMasterController()
 	{
 		 System.out.println("\nWelcome Product Master! \nYou can perform following operations");
@@ -67,6 +67,8 @@ public class UserInterface
 	      }
 	    }
 	}
+	
+	//add ProductMaster by Admin
 	private static void addProductMaster() 
 	{
 		UserDTO user=getUserDTO();
@@ -75,6 +77,7 @@ public class UserInterface
 		
 	}
 
+	//View all products method
 	private static void viewAllProducts() {
 		try
 		{
@@ -93,6 +96,7 @@ public class UserInterface
 		
 	}
 
+	//Search a product
 	private static void searchAProduct() {
 		System.out.print("\n Provide any of the product name to search:");
 		String input=scan.next();
@@ -112,6 +116,8 @@ public class UserInterface
 		
 	}
 
+	
+	//Filter products by its price
 	private static void filterByProductPrice() {
 		System.out.println("\n1)Sort by Increasing Order\n2)Sort by Decreasing Order ");
 		int input=scan.nextInt();
@@ -146,6 +152,8 @@ public class UserInterface
 		
 	}
 
+	
+	//Filter products by brand name
 	private static void filterByProductBrand() {
 		try {
 			System.out.println("Available Product Brands:");
@@ -166,6 +174,8 @@ public class UserInterface
 		
 	}
 
+	
+	//Filter products by name
 	private static void filterByProductName() 
 	{
 		
@@ -189,6 +199,8 @@ public class UserInterface
 		
 	}
 
+	
+	//delete a product
 	private static void deleteAProduct()
 	{
 	 try {
@@ -209,6 +221,8 @@ public class UserInterface
 	
 	}
 
+	
+	//update a product
 	private static void updateAProduct() 
 	{
 		 viewAllProducts();
@@ -225,6 +239,7 @@ public class UserInterface
 		
 	}
 
+	//add a product by product master
 	public static void addAProduct()
 	{
 	   	String productId=GenerateRandom.generateRandomString();
@@ -260,6 +275,7 @@ public class UserInterface
 	  
 	}
 	
+	//get input from the user
 	public static ProductDTO getInputOfProduct()
 	{	System.out.println("Enter the productId to edit the product details:");
 		String productId=scan.next();
@@ -284,6 +300,7 @@ public class UserInterface
 	  return new ProductDTO(productId,price,color,dimension,specification,manufacturer,quantity,category,productName,productBrand);	
 	}
 	
+	//Method to determine who is currently logged in to perform actions
 	private static void isLoggedIn()
 	{
 	   if(object.checkUserLoggedIn())
@@ -304,6 +321,7 @@ public class UserInterface
 	   }
 	}
 	
+	//Admin controller method
 	private static void AdminController() 
 	{
 	 System.out.println("\nWelcome Admin !!\nNow choose...");	
@@ -343,6 +361,7 @@ public class UserInterface
 	}
 
 
+	//This method will logout the cuurent user
 	private static void LogOutCurrentUser() {
 	  
 		System.out.println("Are you sure that you want to log out? y/n");
@@ -360,6 +379,7 @@ public class UserInterface
 	}
 
 
+	//This method will prompt user to login.
 	private static void promptLogIn()
 	{
 	System.out.println("Please Enter UserId:");	
@@ -380,11 +400,13 @@ public class UserInterface
 	  
 	}
 	
+	//This will close the application.
 	public static void closeApplication()
 	{
 	  System.exit(0);	
 	}
 	
+	//This method will get user details.
 	public static UserDTO getUserDTO()
 	{
 		System.out.print("\nEnter UserId:");
