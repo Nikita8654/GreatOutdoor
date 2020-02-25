@@ -135,9 +135,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	@Override
 	public Map<String, ProductDTO> searchAProduct(String input) throws ProductException {
-		
-
-        Map<String,ProductDTO> out=new HashMap<>();
+		Map<String,ProductDTO> out=new HashMap<>();
 		List<ProductDTO> output=viewAllProducts().values().stream().
 		filter(p->
 		p.getProductName().toLowerCase().contains(input.toLowerCase()) || p.getProductBrand().toLowerCase().contains(input.toLowerCase()) || p.getProductId().contains(input.toLowerCase()) || p.getSpecification().toLowerCase().contains(input.toLowerCase())

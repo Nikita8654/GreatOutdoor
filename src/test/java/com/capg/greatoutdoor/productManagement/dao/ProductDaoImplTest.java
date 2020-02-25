@@ -1,7 +1,6 @@
 package com.capg.greatoutdoor.productManagement.dao;
 
 import static org.junit.Assert.*;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,10 +9,12 @@ import com.capg.greatoutdoor.productManagement.exceptions.InvalidInputException;
 import com.capg.greatoutdoor.productManagement.exceptions.LoginException;
 import com.capg.greatoutdoor.productManagement.exceptions.ProductException;
 import com.capg.greatoutdoor.productManagement.service.ProductServiceImpl;
+import com.capg.greatoutdoor.productManagement.util.ProductRepo;
 
 public class ProductDaoImplTest {
 	static ProductServiceImpl service;
-	
+	static ProductRepo productRepo;
+	static ProductDaoImpl productDao;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -45,16 +46,7 @@ public class ProductDaoImplTest {
 		assertEquals(false, service.deleteProduct(""));
 		
 	}
-	@Test(expected = ProductException.class)
-	public void testFilterProductByBrand() throws ProductException {
-		service.filterByBrand("");
-		
-	}
-	@Test(expected = ProductException.class)
-	public void testFilterProductByName() throws ProductException {
-		service.filterByName("");
-		
-	}
+	
 	@Test
 	public void testFilterProductByPrice() throws ProductException {
 		assertNotNull(service.filterByPrice());
@@ -63,6 +55,11 @@ public class ProductDaoImplTest {
 	@Test
 	public void testSearchAProduct() throws ProductException {
 		assertNotNull(service.searchAProduct("puma"));
+	}
+	@Test
+	public void checkLogin() throws LoginException
+	{	
+		assertEquals(true, service.validateLogIn("bob123", "admin"));
 	}
 
 }
